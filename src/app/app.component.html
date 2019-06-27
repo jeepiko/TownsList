@@ -1,0 +1,80 @@
+
+
+<div class="col-md-2">
+</div>
+<div class="text-center col-md-8">
+  <h1 style="text-align:center ; color : gray ">-- Counties --</h1>
+  <a>&nbsp;</a>
+  <table style="font-size: 10px " class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <!-- <th class="text-center">entityType:</th> -->
+        <!-- <th class="text-center">ID:</th> -->
+        <th class="text-center">Name:</th>
+        <th class="text-center">Option:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let countie of counties " (click)="setClickedRow(countie)">
+        <!-- <td>{{countie.entityType}}</td> -->
+        <!-- <td>{{countie.ID}}</td> -->
+        <td>{{countie.name}}</td>
+        <td>
+          <!-- <i class="fa fa-trash" (click)="setClickedRow(countie)" style="color:red;"></i> -->
+          <button (click)="setClickedRow(countie)" type="reset" class="btn btn-sm btn-primary">
+            Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h1 style="text-align:center ; color : gray ">-- Towns -- {{selectcounties}}</h1> 
+  <a>&nbsp;</a>
+  <div class="custom-controls-stacked mb-2">
+    <input type="text" [(ngModel)]="term" placeholder="Search filter ..." size="40" style="font-size:16px">
+
+  </div>
+  <table style="font-size: 10px " class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <!-- <th class="text-center">entityType:</th> -->
+        <!-- <th class="text-center">ID:</th> -->
+        <th class="text-center">Name:</th>
+        <!-- <th class="text-center">countyID:</th> -->
+        <th class="text-center">CountyName:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let town of towns | filter:term">
+        <!-- <td>{{town.entityType}}</td> -->
+        <!-- <td>{{town.ID}}</td> -->
+        <td>{{town.name}}</td>
+        <!-- <td>{{town.countyID}}</td> -->
+        <td>{{town.countyName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h1 style="text-align:center ; color : gray ">-- Communities --  {{selectcounties}}</h1>
+  <a>&nbsp;</a>
+  <table style="font-size: 10px " class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <!-- <th class="text-center">entityType:</th> -->
+        <!-- <th class="text-center">ID:</th> -->
+        <th class="text-center">Name:</th>
+        <!-- <th class="text-center">countyID:</th> -->
+        <th class="text-center">CountyName:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let communitie of communities | filter:term">
+        <!-- <td>{{communitie.entityType}}</td> -->
+        <!-- <td>{{communitie.ID}}</td> -->
+        <td>{{communitie.name}}</td>
+        <!-- <td>{{communitie.countyID}}</td> -->
+        <td>{{communitie.countyName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
